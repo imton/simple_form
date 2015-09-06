@@ -473,7 +473,7 @@ module SimpleForm
     def build_association_attribute(reflection, association, options)
       case reflection.macro
       when :belongs_to
-        public_id = reflection.respond_to?(:token) ? :#{reflection.name}[#{token}] :  :"#{reflection.name}_#{id}"
+        public_id = reflection.respond_to?(:token) ? "#{reflection.name}[#{token}]" :  "#{reflection.name}_#{id}"
         (reflection.respond_to?(:options) && reflection.options[:foreign_key]) || public_id
       when :has_one
         raise ArgumentError, ":has_one associations are not supported by f.association"
